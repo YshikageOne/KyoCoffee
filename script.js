@@ -750,12 +750,19 @@ function updateCartDisplay() {
         const totalPriceElement = document.createElement('p');
         totalPriceElement.textContent = `Total Price: ₱${totalPrice.toFixed(2)}`;
         cartElement.appendChild(totalPriceElement);
+
+        const checkoutButton = document.createElement('button');
+        checkoutButton.textContent = 'Checkout';
+        checkoutButton.classList.add('special-checkout');
+        checkoutButton.addEventListener('click', function() {
+            alert('Proceeding to checkout...');
+        });
+        cartElement.appendChild(checkoutButton);
     } else {
         cartElement.innerHTML += `<p>Your cart is empty.</p>`;
     }
     attachEventListenersToCartButtons(); 
 }
-
 function attachEventListenersToCartButtons() {
     document.querySelectorAll('.remove-item-btn').forEach(button => {
         button.addEventListener('click', function(event) {
