@@ -61,6 +61,19 @@
         <div class="menu-items" id="selectedMenuItems">
             <!-- Menu items will be populated here by JavaScript -->
         </div>
+
+        <div id="checkoutModel" class="model">
+            <div class="model-content">
+                <span class="close">&times;</span>
+                <h2>Checkout</h2>
+                <form id="checkoutForm">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="text" id="address" name="address" placeholder="Your Address" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Confirm Purchase</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -85,5 +98,11 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("m9WNSMu0Fwb3iQ4Ve"); 
+    })();
+    </script>
 </body>
 </html>
