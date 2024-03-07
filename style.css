@@ -155,7 +155,7 @@ nav a{
 }
 
 .lower-section img {
-    width: 400px;
+    max-width: 50%;
     height: auto;
     margin-bottom: 20px; 
 }
@@ -208,6 +208,9 @@ footer input[type="email"] {
     margin-right: 10px;
     border: none;
     flex-grow: 1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px; 
 }
 
 footer button {
