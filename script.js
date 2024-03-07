@@ -755,7 +755,8 @@ function updateCartDisplay() {
         checkoutButton.textContent = 'Checkout';
         checkoutButton.classList.add('special-checkout');
         checkoutButton.addEventListener('click', function() {
-            alert('Proceeding to checkout...');
+            document.getElementById('cart').style.display = 'none';
+            showModel();
         });
         cartElement.appendChild(checkoutButton);
     } else {
@@ -763,6 +764,24 @@ function updateCartDisplay() {
     }
     attachEventListenersToCartButtons(); 
 }
+
+function showModel() {
+    const model = document.getElementById('checkoutModel');
+    model.style.display = 'block';
+
+    const span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        model.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == model) {
+            model.style.display = "none";
+        }
+    }
+}
+
 function attachEventListenersToCartButtons() {
     document.querySelectorAll('.remove-item-btn').forEach(button => {
         button.addEventListener('click', function(event) {
@@ -789,3 +808,47 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay();
     attachEventListenersToCartButtons();
 });
+
+document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    console.log('Form submitted');
+
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const email = document.getElementById('email').value;
+    let orderDetails = '';
+    let totalPrice = 0;
+
+    
+    cart.forEach(item => {
+        orderDetails += `${item.name} x ${item.quantity}, `;
+        totalPrice += parseFloat(item.price) * item.quantity;
+    });
+
+    
+    emailjs.send("service_6chew4v", "template_eu5vsf4", {
+        "name": name,
+        "address": address,
+        "email": email,
+        "orderDetails": orderDetails,
+        "totalPrice": totalPrice.toFixed(2)
+    })
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Thank you for your purchase! A confirmation email has been sent.');
+    }, function(error) {
+        console.log('FAILED...', error);
+    });
+
+    
+    document.getElementById('checkoutModal').style.display = 'none';
+    cart = []; // Clear the cart array
+    updateCartDisplay(); 
+});
+
+window.onclick = function(event) {
+    const model = document.getElementById('checkoutModal');
+    if (event.target == model) {
+        model.style.display = "none";
+    }
+}
