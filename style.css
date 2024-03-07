@@ -606,7 +606,7 @@ footer .contact-us i {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     header {
         flex-direction: column;
         align-items: center;
@@ -642,24 +642,36 @@ footer .contact-us i {
 
     .menu-item {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        font-size: 1.25em;
+        padding: 15px;
     }
 
     .menu-item h3 {
-        font-size: larger; 
+        font-size: 1.5em; 
     }
 
     .menu-item p {
-        font-size: medium; 
+        font-size: 1em; 
     }
 
     .menu-item button {
-        padding: 15px 30px; 
-        font-size: larger; 
+        padding: 10px 20px; 
+        font-size: 1em; 
     }
 
     .lower-section img {
         width: 100%; 
+    }
+
+    .menu-categories li button { 
+        font-size: 1em;
+        padding: 10px 20px; 
+    }
+
+    .menu-item img {
+        width: 50%; 
+        height: auto; 
     }
 
     footer {
