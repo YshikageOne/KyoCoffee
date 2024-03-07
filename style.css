@@ -155,9 +155,11 @@ nav a{
 }
 
 .lower-section img {
-    max-width: 50%;
-    height: auto;
-    margin-bottom: 20px; 
+    max-width: 600px; 
+    height: auto; 
+    width: 100%;
+    display: block; 
+    margin: 0 auto;
 }
 
 .lower-section p{
@@ -598,6 +600,10 @@ footer .contact-us i {
     .menu-items {
         grid-template-columns: repeat(3, 1fr); 
     }
+
+    .lower-section img {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -636,6 +642,10 @@ footer .contact-us i {
 
     .menu-item {
         width: 100%;
+    }
+
+    .lower-section img {
+        width: 100%; 
     }
 
     footer {
