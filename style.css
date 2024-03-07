@@ -637,11 +637,25 @@ footer .contact-us i {
     }
 
     .menu-items {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .menu-item {
         width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .menu-item h3 {
+        font-size: larger; 
+    }
+
+    .menu-item p {
+        font-size: medium; 
+    }
+
+    .menu-item button {
+        padding: 15px 30px; 
+        font-size: larger; 
     }
 
     .lower-section img {
