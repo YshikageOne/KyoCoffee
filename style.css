@@ -637,14 +637,16 @@ footer .contact-us i {
     }
 
     .menu-items {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .menu-item {
-        width: 100%;
-        margin-bottom: 15px;
+        box-sizing: border-box;
+        width: 90%;
+        margin-bottom: 20px;
         font-size: 1.25em;
-        padding: 15px;
     }
 
     .menu-item h3 {
@@ -656,7 +658,7 @@ footer .contact-us i {
     }
 
     .menu-item button {
-        padding: 10px 20px; 
+        padding: 12px 24px; 
         font-size: 1em; 
     }
 
@@ -670,8 +672,8 @@ footer .contact-us i {
     }
 
     .menu-item img {
-        width: 50%; 
-        height: auto; 
+        max-width: 100%; 
+        height: auto;
     }
 
     footer {
@@ -692,3 +694,4 @@ footer .contact-us i {
         margin: 10px 0;
     }
 }
+
